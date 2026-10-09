@@ -9,12 +9,14 @@
     {% tailwind_css %}
     <div class="flex items-center justify-between px-8 py-4 text-3xl font-bold">{% block title %}{% endblock %}</div>
     <link rel="stylesheet" type="text/css" href={% static 'css/main.css' %} >
+    <script src="{% static 'js/base_tag.js' %}"></script>
 </head>
 <body>
     <main>
         {% block content %}{% endblock %}
     </main>
-    <footer>
+    <footer class="text-base">
+        <base-tag></base-tag>
         <p>&copy; 2026 MrBook</p>
     </footer>
 </body>
