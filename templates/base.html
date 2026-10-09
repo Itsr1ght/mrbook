@@ -1,4 +1,5 @@
 {% load tailwind_tags %}
+{% tailwind_css %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,17 +7,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% tailwind_css %}
     <div class="flex items-center justify-between px-8 py-4 text-3xl font-bold">{% block title %}{% endblock %}</div>
     <link rel="stylesheet" type="text/css" href={% static 'css/main.css' %} >
-    <script src="{% static 'js/base_tag.js' %}"></script>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
 </head>
 <body>
     <main>
         {% block content %}{% endblock %}
     </main>
     <footer class="text-base">
-        <base-tag></base-tag>
+        <base-button></base-button>
         <p>&copy; 2026 MrBook</p>
     </footer>
 </body>

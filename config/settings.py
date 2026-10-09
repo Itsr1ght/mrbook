@@ -34,7 +34,10 @@ INSTALLED_APPS = [
     "shelf",
 ]
 
+TAILWIND_STANDALONE_BINARY_VERSION = "v4.3.3"
 TAILWIND_APP_NAME = 'theme'
+TAILWIND_USE_STANDALONE_BINARY = True
+TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
