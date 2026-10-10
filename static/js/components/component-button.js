@@ -6,7 +6,7 @@ export class Button extends Base {
   }
   render() {
     this.innerHTML = `
-      <div class="bg-amber-900 rounded-md w-fit">Hello</div>
+      <div class="bg-amber-300 rounded-md w-fit cursor-pointer">${this.textContent}</div>
     `;
   }
 }

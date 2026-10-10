@@ -1,6 +1,3 @@
-import { Button } from "./components/button.js";
+import { Button } from "./components/component-button.js";
 
-let states = [];
-let currentIndex = 0;
-
-customElements.define('base-button', Button);
+customElements.define('component-button', Button);
