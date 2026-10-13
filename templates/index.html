@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Mr. Book{% endblock %}
 
 {% block content %}
+<script type="text/babel" data-type="module" data-presets="react" src="{% static 'js/main.jsx' %}"></script>
+<div id="app"></div>
 <h1></h1>
 {% endblock %}
