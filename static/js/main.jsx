@@ -11,9 +11,9 @@ function App() {
             <h1>Hello Preact!</h1>
             <p>Count: {count}</p>
 
-            <button onClick={() => setCount(count + 1)}>
+            <div className="bg-blue-500 rounded-lg px-6 text-white w-fit cursor-pointer select-none" onClick={() => setCount(count + 1)}>
                 Increment
-            </button>
+            </div>
         </div>
     );
 }
