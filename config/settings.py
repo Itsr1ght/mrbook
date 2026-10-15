@@ -23,19 +23,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
+    "config.apps.MongoAdminConfig",
+    "config.apps.MongoAuthConfig",
+    "config.apps.MongoContentTypesConfig",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_mongodb_backend",
     "tailwind",
     "theme",
-    "shelf",
+    "main",
 ]
 
 TAILWIND_STANDALONE_BINARY_VERSION = "v4.3.3"
-TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = "theme"
 TAILWIND_USE_STANDALONE_BINARY = True
 TAILWIND_CSS_PATH = "css/dist/styles.css"
 
@@ -72,10 +73,21 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+DEFAULT_AUTO_FIELD = "django_mongodb_backend.fields.ObjectIdAutoField"
+
+MIGRATION_MODULES = {
+    "admin": "mongo_migrations.admin",
+    "auth": "mongo_migrations.auth",
+    "contenttypes": "mongo_migrations.contenttypes",
+}
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django_mongodb_backend",
+        "NAME": "mongodb",
+        "HOST": os.environ.get("MONGO_HOST", ""),
+        "USER": os.environ.get("MONGO_USER", ""),
+        "PASSWORD": os.environ.get("MONGO_PASS", ""),
     }
 }
 
