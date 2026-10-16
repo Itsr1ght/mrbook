@@ -1,21 +1,28 @@
 /** @jsx h */
 
-import { h, render } from "https://esm.sh/preact";
-import { useState } from "https://esm.sh/preact/hooks";
+import { h, render } from "preact";
+import { useLocation, Router, Route, LocationProvider } from "preact-iso";
+import Home from "./pages/home";
+import Books from "./pages/books";
 
 function App() {
-    const [count, setCount] = useState(0);
+  const location = useLocation();
 
-    return (
-        <div>
-            <h1>Hello Preact!</h1>
-            <p>Count: {count}</p>
+  return (
+    <div>
+      <Router>
+        <Route path="/" component={<Home />} />
+        <Route path="/books" component={<Books />} />
+      </Router>
 
-            <div className="bg-blue-500 rounded-lg px-6 text-white w-fit cursor-pointer select-none" onClick={() => setCount(count + 1)}>
-                Increment
-            </div>
-        </div>
-    );
+      <p>Current path: {location.path}</p>
+    </div>
+  );
 }
 
-render(<App />, document.getElementById("app"));
+render(
+  <LocationProvider>
+    <App />
+  </LocationProvider>,
+  document.getElementById("app"),
+);

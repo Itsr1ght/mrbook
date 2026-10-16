@@ -13,8 +13,24 @@
 </head>
 <body>
     <div id="app"></div>
+    <script type="importmap">
+    {
+        "imports": {
+            "preact": "https://esm.sh/preact@10",
+            "preact/hooks": "https://esm.sh/preact@10/hooks",
+            "preact-iso": "https://esm.sh/preact-iso?external=preact"
+        }
+    }
+    </script>
+
     <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
-    <script type="text/babel" data-type="module" data-presets="react" src="{% static 'js/main.jsx' %}"></script>
+
+    <script
+        type="text/babel"
+        data-type="module"
+        data-presets="react"
+        src="{% static 'js/main.jsx' %}">
+    </script>
     <main>
         {% block content %}{% endblock %}
     </main>
