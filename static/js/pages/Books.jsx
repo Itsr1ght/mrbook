@@ -32,7 +32,7 @@ function BookCard({ book }) {
       onClick={() => route(`/books/${book.id}`)}
       class="group cursor-pointer overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-indigo-500 hover:shadow-lg"
     >
-      <div class="flex aspect-[3/4] items-center justify-center bg-slate-800 p-5">
+      <div class="flex aspect-3/4 items-center justify-center bg-slate-800 p-5">
         <img
           src={book.cover}
           alt={book.title}
