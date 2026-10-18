@@ -7,12 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div class="flex items-center justify-between px-8 py-4 text-3xl font-bold">{% block title %}{% endblock %}</div>
     <link rel="stylesheet" type="text/css" href={% static 'css/main.css' %} >
-    <script type="text/babel" data-type="module" data-presets="react" src="{% static 'js/main.jsx' %}"></script>
-</head>
-<body>
-    <div id="app"></div>
     <script type="importmap">
     {
         "imports": {
@@ -31,11 +26,8 @@
         data-presets="react"
         src="{% static 'js/main.jsx' %}">
     </script>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer class="text-base">
-        <p>&copy; 2026 MrBook</p>
-    </footer>
+</head>
+<body>
+    <div id="app"></div>
 </body>
 </html>
