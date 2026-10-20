@@ -12,6 +12,7 @@ const { default: Footer } = await loadJSX("/static/js/components/Footer.jsx");
 const { default: Home } = await loadJSX("/static/js/pages/Home.jsx");
 const { default: Books } = await loadJSX("/static/js/pages/Books.jsx");
 const { default: NotFound } = await loadJSX("/static/js/pages/NotFound.jsx");
+const { default: Login} = await loadJSX("/static/js/pages/Login.jsx");
 
 // App layout + routing
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Router>
           <Route path="/" component={Home} />
           <Route path="/books" component={Books} />
+          <Route path="/login" component={ Login }/>
           <Route default component={NotFound} />
         </Router>
       </main>
