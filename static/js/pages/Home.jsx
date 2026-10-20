@@ -5,53 +5,6 @@ import { h, Fragment } from "preact";
 import { useState } from "preact/hooks";
 import { useLocation } from "preact-iso";
 
-const featuredBooks = [
-  {
-    id: 1,
-    title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    cover: "/static/images/hobbit.jpg",
-  },
-  {
-    id: 2,
-    title: "Dune",
-    author: "Frank Herbert",
-    cover: "/static/images/dune.jpg",
-  },
-  {
-    id: 3,
-    title: "1984",
-    author: "George Orwell",
-    cover: "/static/images/1984.jpg",
-  },
-];
-
-function BookCard({ book }) {
-  const { route } = useLocation();
-
-  return (
-    <article
-      className="group cursor-pointer overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
-      onClick={() => route(`/books/${book.id}`)}
-    >
-      <div className="flex aspect-3/4 items-center justify-center bg-slate-100 p-5 dark:bg-slate-800">
-        <img
-          src={book.cover}
-          alt={book.title}
-          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-
-      <div className="p-4">
-        <h3 className="truncate font-semibold text-slate-900 dark:text-white">
-          {book.title}
-        </h3>
-        <p className="mt-1 truncate text-sm text-slate-500">{book.author}</p>
-      </div>
-    </article>
-  );
-}
-
 export default function Home() {
   const [search, setSearch] = useState("");
   const { route } = useLocation();
@@ -102,33 +55,6 @@ export default function Home() {
               Search
             </button>
           </form>
-        </div>
-      </section>
-
-      {/* Featured Books */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="mb-8 flex items-center justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-              Explore books
-            </h2>
-            <p className="mt-2 text-sm text-slate-500">
-              Discover something worth reading.
-            </p>
-          </div>
-
-          <a
-            href="/books"
-            className="whitespace-nowrap text-sm font-semibold text-indigo-600 hover:text-indigo-500"
-          >
-            View all →
-          </a>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredBooks.map((book) => (
-            <BookCard key={book.id} book={book} />
-          ))}
         </div>
       </section>
     </div>

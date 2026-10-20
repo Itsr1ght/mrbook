@@ -9,15 +9,36 @@ export async function loadJSX(url) {
 
   const result = Babel.transform(source, {
     presets: [
-      ["react", {
-        runtime: "classic",
-        pragma: "h",
-        pragmaFrag: "Fragment",
-      }],
+      [
+        "react",
+        {
+          runtime: "classic",
+          pragma: "h",
+          pragmaFrag: "Fragment",
+        },
+      ],
     ],
   });
 
-  const blob = new Blob([result.code], {
+  // Resolve imports relative to the original JSX file
+  const baseURL = new URL(url, window.location.href);
+
+  const code = result.code.replace(
+    /(\bfrom\s*["'])([^"']+)(["'])/g,
+    (match, start, specifier, end) => {
+      if (
+        specifier.startsWith("/") ||
+        specifier.startsWith("./") ||
+        specifier.startsWith("../")
+      ) {
+        return `${start}${new URL(specifier, baseURL).href}${end}`;
+      }
+
+      return match;
+    }
+  );
+
+  const blob = new Blob([code], {
     type: "text/javascript",
   });
 
