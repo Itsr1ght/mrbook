@@ -46,9 +46,7 @@ function BookCard({ book }) {
         <h3 class="truncate font-semibold text-slate-900 dark:text-white">
           {book.title}
         </h3>
-        <p class="mt-1 truncate text-sm text-slate-500">
-          {book.author}
-        </p>
+        <p class="mt-1 truncate text-sm text-slate-500">{book.author}</p>
       </div>
     </article>
   );
@@ -77,14 +75,12 @@ export default function Home() {
 
           <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
             Discover your next
-            <span class="block text-indigo-400">
-              great read.
-            </span>
+            <span class="block text-indigo-400">great read.</span>
           </h1>
 
           <p class="mx-auto mt-6 max-w-xl text-base leading-8 text-slate-400 sm:text-lg">
-            Explore amazing books, discover new authors,
-            and enjoy reading all in one place.
+            Explore amazing books, discover new authors, and enjoy reading all
+            in one place.
           </p>
 
           <form

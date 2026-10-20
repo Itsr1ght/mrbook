@@ -41,13 +41,9 @@ function BookCard({ book }) {
       </div>
 
       <div class="p-4">
-        <h2 class="truncate text-lg font-semibold text-white">
-          {book.title}
-        </h2>
+        <h2 class="truncate text-lg font-semibold text-white">{book.title}</h2>
 
-        <p class="mt-1 text-sm text-slate-400">
-          {book.author}
-        </p>
+        <p class="mt-1 text-sm text-slate-400">{book.author}</p>
       </div>
     </article>
   );
@@ -59,9 +55,7 @@ export default function Books() {
       <div class="mx-auto max-w-6xl">
         <h1 class="text-3xl font-bold">Books</h1>
 
-        <p class="mt-2 text-slate-400">
-          Explore all available books.
-        </p>
+        <p class="mt-2 text-slate-400">Explore all available books.</p>
 
         <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {books.map((book) => (
